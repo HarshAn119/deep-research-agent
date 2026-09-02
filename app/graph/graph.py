@@ -78,7 +78,11 @@ def build_graph(db: AsyncSession) -> StateGraph:
     graph.add_edge("planner", "search_scrape")
     graph.add_edge("search_scrape", "deduplication")
     graph.add_edge("deduplication", "reflection")
-    graph.add_conditional_edges("reflection", _reflection_router)
+    graph.add_conditional_edges(
+        "reflection",
+        _reflection_router,
+        {"planner": "planner", "report_generator": "report_generator"},
+    )
     graph.add_edge("report_generator", END)
 
     return graph.compile()
