@@ -1,0 +1,23 @@
+# Consistent line endings across platforms
+* text=auto
+
+# Python
+*.py text eol=lf diff=python
+
+# Markdown
+*.md text eol=lf
+
+# SQL / migrations
+*.sql text eol=lf
+
+# Config files
+*.toml text eol=lf
+*.ini  text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.env.example text eol=lf
+
+# Treat generated/binary files as binary (no diff noise)
+*.png binary
+*.jpg binary
+*.ico binary
